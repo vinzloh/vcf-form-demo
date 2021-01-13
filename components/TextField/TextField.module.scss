@@ -1,0 +1,29 @@
+.layout {
+  @apply relative flex flex-col;
+
+  label {
+    left: 1px;
+    z-index: -1;
+    transform: translateY(10px);
+    @apply text-primary absolute top-0 py-1 px-3 uppercase;
+    @apply font-semibold tracking-wider;
+    @apply transition-all ease-in duration-150;
+  }
+
+  input {
+    @apply outline-none px-3 rounded-sm h-11;
+    @apply transition-all ease-linear duration-75;
+  }
+
+  &:focus-within {
+    label {
+      z-index: 0;
+      transform: translateY(-0.5em);
+      font-size: 0.65em;
+    }
+    input {
+      @apply border-primary bg-gray-100;
+      @apply pt-4 pb-2;
+    }
+  }
+}
