@@ -38,7 +38,7 @@ const Layout: React.FC<{ className?: string }> = ({ children, className }) => {
 const navLinkStyles = 'text-xs lg:text-sm'
 
 const Header: React.FC = () => (
-  <header className="bg-gray-900 text-gray-200 px-0 py-3 md:py-4">
+  <header className="bg-gray-700 text-gray-200 px-0 py-3 md:py-4">
     <PageContainer className={'lg:flex flex-row justify-between'}>
       <div className="flex items-center justify-center">
         <img src="/company-logo.svg" style={{ width: 55, maxWidth: '20%' }} />

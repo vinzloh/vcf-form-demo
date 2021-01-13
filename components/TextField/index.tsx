@@ -1,8 +1,8 @@
-import styles from './TextField.module.scss'
-import IFormControl from 'interfaces/FormControl'
-import FormErrorLabel from 'components/FormErrorLabel'
 import classNames from 'classnames'
-import { Ref } from 'react'
+import FormErrorLabel from 'components/FormErrorLabel'
+import IFormControl from 'interfaces/FormControl'
+import { Ref, useRef } from 'react'
+import styles from './TextField.module.scss'
 
 const TextField: React.FC<
   {
@@ -34,6 +34,11 @@ const TextField: React.FC<
   const hasError = !!(errors[name as keyof {}] as any)?.message
   const hasValue = !!watch(name)
 
+  const inputRef = useRef()
+  if (!inputRef.current) {
+    inputRef.current = parentRef ? registerSharedRef(parentRef) : register
+  }
+
   return (
     <div className={classNames(styles.layout, className)}>
       <label id={labelId} htmlFor={inputId}>
@@ -46,7 +51,7 @@ const TextField: React.FC<
         type={type}
         aria-labelledby={labelId}
         placeholder={placeholder || label}
-        ref={parentRef ? registerSharedRef(parentRef) : register}
+        ref={inputRef.current}
         defaultValue={defaultValues[name as keyof {}] ?? ''}
         disabled={disabled}
         className={classNames(

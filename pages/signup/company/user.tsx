@@ -33,21 +33,14 @@ const User: React.FC = () => {
   const { handleSubmit, getValues, ...formProps } = useForm(
     { name: 'firstName', type: 'text' },
     { name: 'lastName', type: 'text' },
-    // TODO:
-    { name: 'jobTitle', type: 'text' },
-    { name: 'department', type: 'text' },
     { name: 'country', type: 'text' },
     { name: 'region', type: 'text' }
   )
-  // TODO: pending Job title, department, structure for both sets of country/region
   const formData = {
     defaultValues: {
       firstName: data.user?.firstName,
       lastName: data.user?.lastName,
       email: data.user?.email,
-      // TODO:
-      // jobTitle: data.user?.email,
-      // department: data.user?.email,
       country: data.basicInfo?.contact?.country,
       region: data.basicInfo?.contact?.region,
     },
@@ -102,18 +95,6 @@ const User: React.FC = () => {
           {...formProps}
         />
         <TextField name="email" {...formData} {...formProps} disabled />
-        <TextField
-          name="jobTitle"
-          placeholder="Job Title"
-          {...formData}
-          {...formProps}
-        />
-        <TextField
-          name="department"
-          placeholder="Department"
-          {...formData}
-          {...formProps}
-        />
         <Select
           name="country"
           placeholder="Select your country"

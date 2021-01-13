@@ -1,4 +1,5 @@
 import useCountryList from 'api-calls/useCountryList'
+import useQualifications from 'api-calls/useQualifications'
 import Layout from 'components/Layout'
 import Select from 'components/Select'
 import Steps, { IStep } from 'components/Steps'
@@ -24,6 +25,7 @@ const Education: React.FC = () => {
   const cache = useInMemoryCache('graduateRegistration')
   const data: ICompanyRegistration = cache.data
   const countries = useCountryList()
+  const qualifications = useQualifications()
 
   useEffect(() => {
     // const data: ICompanyRegistration = cache.data
@@ -37,21 +39,14 @@ const Education: React.FC = () => {
     { name: 'lastName', type: 'text' },
     { name: 'admissionDate', type: 'date' },
     { name: 'graduationDate', type: 'date' },
-    // TODO:
-    { name: 'jobTitle', type: 'text' },
-    { name: 'department', type: 'text' },
     { name: 'country', type: 'text' },
     { name: 'region', type: 'text' }
   )
-  // TODO: pending Job title, department, structure for both sets of country/region
   const formData = {
     defaultValues: {
       firstName: data.user?.firstName,
       lastName: data.user?.lastName,
       email: data.user?.email,
-      // TODO:
-      // jobTitle: data.user?.email,
-      // department: data.user?.email,
       country: data.basicInfo?.contact?.country,
       region: data.basicInfo?.contact?.region,
     },
@@ -89,13 +84,6 @@ const Education: React.FC = () => {
           {...formData}
           {...formProps}
         />
-        <Select
-          name="universityRegion"
-          placeholder="University Region"
-          values={countries}
-          {...formData}
-          {...formProps}
-        />
         <TextField
           name="universityCourse"
           placeholder="Course"
@@ -105,19 +93,21 @@ const Education: React.FC = () => {
         <Select
           name="qualification"
           placeholder="Select your qualification level"
-          values={countries}
+          values={qualifications}
           {...formData}
           {...formProps}
         />
         <DatePicker
           name="admissionDate"
           placeholder="Admission Date"
+          scrollMarginTop={220}
           {...formData}
           {...formProps}
         />
         <DatePicker
           name="graduationDate"
           placeholder="Graduation Date"
+          scrollMarginTop={100}
           {...formData}
           {...formProps}
         />

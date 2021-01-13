@@ -1,6 +1,7 @@
 import useCountryList from 'api-calls/useCountryList'
 import useIndustryList from 'api-calls/useIndustryList'
 import useJobFunctionList from 'api-calls/useJobFunctionList'
+import useCurrencies from 'api-calls/useCurrencies'
 import Layout from 'components/Layout'
 import Select from 'components/Select'
 import Steps, { IStep } from 'components/Steps'
@@ -11,6 +12,7 @@ import useForm from 'hooks/useForm'
 import useInMemoryCache from 'hooks/useInMemoryCache'
 import ICompanyRegistration from 'interfaces/CompanyRegistration'
 import { useRouter } from 'next/router'
+import currencies from 'pages/api/currencies'
 import { useEffect } from 'react'
 
 const More: React.FC = () => {
@@ -27,6 +29,7 @@ const More: React.FC = () => {
   const countries = useCountryList()
   const industries = useIndustryList()
   const jobFunctions = useJobFunctionList()
+  const currencies = useCurrencies()
 
   useEffect(() => {
     // const data: ICompanyRegistration = cache.data
@@ -39,20 +42,14 @@ const More: React.FC = () => {
     { name: 'firstName', type: 'text' },
     { name: 'lastName', type: 'text' },
     // TODO:
-    { name: 'jobTitle', type: 'text' },
-    { name: 'department', type: 'text' },
     { name: 'country', type: 'text' },
     { name: 'region', type: 'text' }
   )
-  // TODO: pending Job title, department, structure for both sets of country/region
   const formData = {
     defaultValues: {
       firstName: data.user?.firstName,
       lastName: data.user?.lastName,
       email: data.user?.email,
-      // TODO:
-      // jobTitle: data.user?.email,
-      // department: data.user?.email,
       country: data.basicInfo?.contact?.country,
       region: data.basicInfo?.contact?.region,
     },
@@ -77,24 +74,10 @@ const More: React.FC = () => {
         }}
       >
         <Select
-          name="availableNow"
-          placeholder="Are you available now?"
-          values={countries}
-          {...formData}
-          {...formProps}
-          parentRef={focusRef}
-        />
-        <Select
-          name="expectedSalaryPeriod"
-          placeholder="Expected salary period"
-          values={countries}
-          {...formData}
-          {...formProps}
-        />
-        <Select
           name="expectedCurrency"
           placeholder="Expected salary currency"
-          values={countries}
+          values={currencies}
+          parentRef={focusRef}
           {...formData}
           {...formProps}
         />

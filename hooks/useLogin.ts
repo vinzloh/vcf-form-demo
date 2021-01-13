@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch'
 import { mutate } from 'swr'
 
 const useLogin = () => {

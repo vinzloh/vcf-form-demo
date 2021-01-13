@@ -5,13 +5,18 @@ import ReactDatePicker from 'react-datepicker'
 import { Controller } from 'react-hook-form'
 import styles from './DatePicker.module.scss'
 
-const DatePicker: React.FC<IFormControl> = ({
+type Props = IFormControl & {
+  scrollMarginTop?: number
+}
+
+const DatePicker: React.FC<Props> = ({
   name,
   placeholder,
   control,
   errors = {},
   defaultValues = {},
   watch = () => {},
+  scrollMarginTop = 0,
 }) => {
   const fieldError = errors[name as keyof {}] as any
   const error = fieldError?.message
@@ -40,6 +45,14 @@ const DatePicker: React.FC<IFormControl> = ({
                 styles.datepicker,
                 hasError || !hasValue ? 'bg-gray-200' : 'bg-gray-100'
               )}
+              popperModifiers={{
+                preventOverflow: {
+                  padding: { top: scrollMarginTop },
+                  escapeWithReference: false,
+                  boundariesElement: 'viewport',
+                },
+              }}
+              showPopperArrow={false}
             />
             {error && <FormErrorLabel {...{ name, errors }} />}
           </div>

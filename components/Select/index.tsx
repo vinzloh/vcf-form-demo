@@ -40,6 +40,16 @@ const customStyles = {
     ...provided,
     backgroundColor: 'transparent',
   }),
+  option: (provided: any, state: any) => ({
+    ...provided,
+    color:
+      (state.isSelected && tailwindTheme.colors.white) ||
+      tailwindTheme.colors.black,
+    backgroundColor:
+      (state.isSelected && tailwindTheme.colors.primary) ||
+      (state.isFocused && state.theme.colors.neutral5) ||
+      'transparent',
+  }),
 }
 
 interface ISelect {

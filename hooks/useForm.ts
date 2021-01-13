@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers'
-import { useForm as useReactHookForm } from 'react-hook-form'
-import { string, mixed, object } from 'yup'
+import { useCallback, useRef } from 'react'
+import { Resolver, useForm as useReactHookForm } from 'react-hook-form'
+import { mixed, object, string } from 'yup'
 
 type SchemaFields = Array<{
   name?: string
@@ -25,11 +26,11 @@ const getSchema = (message?: string) => ({
     'Please accept the terms of use and privacy policy'
   ),
 })
-
+// let formProps = { register: () => {} }
 export default function useForm(...fields: SchemaFields) {
-  const useForm = useReactHookForm({
-    mode: 'onChange',
-    resolver: yupResolver(
+  const resolverRef = useRef<Resolver>()
+  if (!resolverRef.current) {
+    resolverRef.current = yupResolver(
       object().shape(
         fields.reduce(
           (acc, { name, type, message }) => ({
@@ -39,13 +40,23 @@ export default function useForm(...fields: SchemaFields) {
           {}
         )
       )
-    ),
+    )
+  }
+  const formProps = useReactHookForm({
+    mode: 'onChange',
+    resolver: resolverRef.current,
   })
-  return {
-    ...useForm,
-    registerSharedRef: (ref: any) => (e: any) => {
+  const { register } = formProps
+  const registerSharedRef = useCallback(
+    (ref: any) => (e: any) => {
       ref.current = e
-      return useForm.register(e)
+      return register(e)
     },
+    [register]
+  )
+
+  return {
+    ...formProps,
+    registerSharedRef,
   }
 }

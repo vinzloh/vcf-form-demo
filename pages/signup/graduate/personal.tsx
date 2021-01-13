@@ -42,19 +42,14 @@ const Personal: React.FC = () => {
     { type: 'prefix' },
     { type: 'phone' },
     // TODO:
-    { name: 'department', type: 'text' },
     { name: 'country', type: 'text' },
     { name: 'region', type: 'text' }
   )
-  // TODO: pending Job title, department, structure for both sets of country/region
   const formData = {
     defaultValues: {
       firstName: data.user?.firstName,
       lastName: data.user?.lastName,
       email: data.user?.email,
-      // TODO:
-      // jobTitle: data.user?.email,
-      // department: data.user?.email,
       country: data.basicInfo?.contact?.country,
       region: data.basicInfo?.contact?.region,
     },
