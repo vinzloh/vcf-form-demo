@@ -1,6 +1,8 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 let isAuthenticated = false
 
-export default (req, res) => {
+export default (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     console.log(`POST req.body:`, req.body)
     isAuthenticated = req.body.isAuthenticated
