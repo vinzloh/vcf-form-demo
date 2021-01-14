@@ -1,19 +1,19 @@
 import classNames from 'classnames'
 import FormErrorLabel from 'components/form-error-label'
-import IFormControl from 'interfaces/form-control'
+import FormControl from 'definitions/form-control'
 import { Ref, useRef } from 'react'
 import styles from './text-field.module.scss'
 
-const TextField: React.FC<
-  {
-    label?: string
-    type?: string
-    disabled?: boolean
-    inputClassName?: string
-    hideError?: boolean
-    parentRef?: Ref<any>
-  } & IFormControl
-> = ({
+type Props = {
+  label?: string
+  type?: string
+  disabled?: boolean
+  inputClassName?: string
+  hideError?: boolean
+  parentRef?: Ref<any>
+} & FormControl
+
+const TextField = ({
   name,
   label,
   placeholder,
@@ -28,7 +28,7 @@ const TextField: React.FC<
   inputClassName,
   hideError = false,
   watch = () => {},
-}) => {
+}: Props) => {
   const labelId = `label-${name}`
   const inputId = `input-${name}`
   const hasError = !!(errors[name as keyof {}] as any)?.message

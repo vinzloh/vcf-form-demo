@@ -4,19 +4,19 @@ import Layout from 'components/layout'
 import Select from 'components/select'
 import Steps, { IStep } from 'components/steps'
 import StepsForm from 'components/steps-form'
+import CompanyRegistration from 'definitions/company-registration'
 import useFocusInput from 'hooks/use-focus-input'
 import useForm from 'hooks/use-form'
 import useInMemoryCache from 'hooks/use-memory-cache'
 import produce from 'immer'
-import ICompanyRegistration from 'interfaces/company-registration'
 import { regions } from 'mocks'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-const Basic: React.FC = () => {
+const Basic = () => {
   const router = useRouter()
   const cache = useInMemoryCache('companyRegistration')
-  const data: ICompanyRegistration = cache.data
+  const data: CompanyRegistration = cache.data
   const countries = useCountryList()
   const industries = useIndustryList()
 
@@ -39,7 +39,7 @@ const Basic: React.FC = () => {
   ]
 
   useEffect(() => {
-    const data: ICompanyRegistration = cache.data
+    const data: CompanyRegistration = cache.data
     if (!data.name) router.push('/signup/company')
   }, [cache, router])
 
@@ -54,7 +54,7 @@ const Basic: React.FC = () => {
       <StepsForm
         onSkip={() => {
           cache.update(
-            produce(cache.data, (state: ICompanyRegistration) => {
+            produce(cache.data, (state: CompanyRegistration) => {
               state.basicInfo.contact.country = ''
               state.basicInfo.contact.region = ''
               state.basicInfo.industry = ''
@@ -64,7 +64,7 @@ const Basic: React.FC = () => {
         }}
         onNext={handleSubmit((data: any) => {
           cache.update(
-            produce(cache.data, (state: ICompanyRegistration) => {
+            produce(cache.data, (state: CompanyRegistration) => {
               state.basicInfo.contact.country = data.country
               state.basicInfo.contact.region = data.region
               state.basicInfo.industry = data.industry

@@ -1,8 +1,8 @@
 import Checkbox from 'components/checkbox'
 import ExternalLink from 'components/external-link'
-import IFormControl from 'interfaces/form-control'
+import FormControl from 'definitions/form-control'
 
-const TermsAndConditions: React.FC<IFormControl> = (props) => (
+const TermsAndConditions = (props: FormControl) => (
   <Checkbox {...props}>
     <div className="flex flex-wrap text-xs my-1">
       <span className="whitespace-no-wrap mr-1">I accept the </span>

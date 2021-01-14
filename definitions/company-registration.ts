@@ -1,4 +1,4 @@
-export default interface ICompanyRegistration {
+type CompanyRegistration = {
   name: string
   countryCode: string
   mobileNumber: string
@@ -17,3 +17,5 @@ export default interface ICompanyRegistration {
     password: string
   }
 }
+
+export default CompanyRegistration

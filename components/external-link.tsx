@@ -1,4 +1,11 @@
-const ExternalLink: React.FC<{ href: string }> = ({ children, href }) => (
+import { ReactNode } from 'react'
+
+type Props = {
+  children: ReactNode
+  href: string
+}
+
+const ExternalLink = ({ children, href }: Props) => (
   <a
     href={href}
     target="_blank"

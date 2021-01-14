@@ -8,12 +8,12 @@ import useFocusInput from 'hooks/use-focus-input'
 import useForm from 'hooks/use-form'
 import useInMemoryCache from 'hooks/use-memory-cache'
 import produce from 'immer'
-import ICompanyRegistration from 'interfaces/company-registration'
+import CompanyRegistration from 'definitions/company-registration'
 import { regions } from 'mocks'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-const User: React.FC = () => {
+const User = () => {
   const router = useRouter()
   const steps: Array<IStep> = [
     { text: 'Company Information' },
@@ -21,10 +21,10 @@ const User: React.FC = () => {
   ]
 
   const cache = useInMemoryCache('companyRegistration')
-  const data: ICompanyRegistration = cache.data
+  const data: CompanyRegistration = cache.data
   const countries = useCountryList()
   useEffect(() => {
-    const data: ICompanyRegistration = cache.data
+    const data: CompanyRegistration = cache.data
     if (!data.name) router.push('/signup/company')
   }, [cache, router])
 
@@ -57,7 +57,7 @@ const User: React.FC = () => {
           const formValues = getValues()
           console.log(`formValues:`, formValues)
           cache.update(
-            produce(cache.data, (state: ICompanyRegistration) => {
+            produce(cache.data, (state: CompanyRegistration) => {
               console.log(`onBack data:`, data)
               state.user.firstName = formValues.firstName
               state.user.lastName = formValues.lastName
@@ -70,7 +70,7 @@ const User: React.FC = () => {
         }}
         onFinish={handleSubmit((data: any) => {
           cache.update(
-            produce(cache.data, (state: ICompanyRegistration) => {
+            produce(cache.data, (state: CompanyRegistration) => {
               state.user.firstName = data.firstName
               state.user.lastName = data.lastName
               // TODO:

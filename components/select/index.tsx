@@ -1,5 +1,5 @@
 import FormErrorLabel from 'components/form-error-label'
-import IFormControl from 'interfaces/form-control'
+import FormControl from 'definitions/form-control'
 import { Ref, useRef } from 'react'
 import { Controller } from 'react-hook-form'
 import ReactSelect from 'react-select'
@@ -52,14 +52,14 @@ const customStyles = {
   }),
 }
 
-interface ISelect {
+type Props = FormControl & {
   values: Array<{}>
   creatable?: boolean
   loadingMessage?: () => string
   parentRef?: Ref<any>
 }
 
-const Select: React.FC<ISelect & IFormControl> = ({
+const Select = ({
   name,
   placeholder,
   control,
@@ -69,7 +69,7 @@ const Select: React.FC<ISelect & IFormControl> = ({
   defaultValues = {},
   creatable = false,
   loadingMessage = () => 'Loading...',
-}) => {
+}: Props) => {
   const getOptionByValue = (value: any) =>
     values.filter((option: any) => value.includes(option.value))
   const formValue = defaultValues[name as keyof {}]

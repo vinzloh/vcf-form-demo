@@ -1,15 +1,13 @@
 import classNames from 'classnames'
 import FormErrorLabel from 'components/form-error-label'
-import IFormControl from 'interfaces/form-control'
+import FormControl from 'definitions/form-control'
 import ReactDatePicker from 'react-datepicker'
 import { Controller } from 'react-hook-form'
 import styles from './date-picker.module.scss'
 
-type Props = IFormControl & {
-  scrollMarginTop?: number
-}
+type Props = FormControl & { scrollMarginTop?: number }
 
-const DatePicker: React.FC<Props> = ({
+const DatePicker = ({
   name,
   placeholder,
   control,
@@ -17,7 +15,7 @@ const DatePicker: React.FC<Props> = ({
   defaultValues = {},
   watch = () => {},
   scrollMarginTop = 0,
-}) => {
+}: Props) => {
   const fieldError = errors[name as keyof {}] as any
   const error = fieldError?.message
   const defaultValue = defaultValues[name as keyof {}] || null

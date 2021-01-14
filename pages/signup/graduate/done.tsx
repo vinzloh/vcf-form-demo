@@ -5,7 +5,7 @@ import Steps, { IStep } from 'components/steps'
 import StepsNavigation from 'components/steps-navigation'
 import { useRouter } from 'next/router'
 
-const Done: React.FC = () => {
+const Done = () => {
   const router = useRouter()
   const steps: Array<IStep> = [
     { text: 'Personal Information' },

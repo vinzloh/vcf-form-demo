@@ -7,12 +7,12 @@ import TextField from 'components/text-field'
 import useFocusInput from 'hooks/use-focus-input'
 import useForm from 'hooks/use-form'
 import useInMemoryCache from 'hooks/use-memory-cache'
-import ICompanyRegistration from 'interfaces/company-registration'
+import CompanyRegistration from 'definitions/company-registration'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import Header from './header'
 
-const Company: React.FC = () => {
+const Company = () => {
   const router = useRouter()
   const { handleSubmit, ...formProps } = useForm(
     { name: 'name', type: 'text' },
@@ -30,7 +30,7 @@ const Company: React.FC = () => {
       name,
       basicInfo: { contact: { email } },
       user: { email, password },
-    } as ICompanyRegistration)
+    } as CompanyRegistration)
     router.push('/signup/company/basic')
   }
 

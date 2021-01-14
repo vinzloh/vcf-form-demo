@@ -1,4 +1,4 @@
-export default interface IFormControl {
+type FormControl = {
   name: string
   register?: any
   registerSharedRef?: Function
@@ -9,3 +9,5 @@ export default interface IFormControl {
   placeholder?: string
   className?: string
 }
+
+export default FormControl

@@ -8,12 +8,12 @@ import TextField from 'components/text-field'
 import useFocusInput from 'hooks/use-focus-input'
 import useForm from 'hooks/use-form'
 import useInMemoryCache from 'hooks/use-memory-cache'
-import ICompanyRegistration from 'interfaces/company-registration'
+import CompanyRegistration from 'definitions/company-registration'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import DatePicker from 'components/date-picker'
 
-const Education: React.FC = () => {
+const Education = () => {
   const router = useRouter()
   const steps: Array<IStep> = [
     { text: 'Personal Information' },
@@ -23,12 +23,12 @@ const Education: React.FC = () => {
   ]
 
   const cache = useInMemoryCache('graduateRegistration')
-  const data: ICompanyRegistration = cache.data
+  const data: CompanyRegistration = cache.data
   const countries = useCountryList()
   const qualifications = useQualifications()
 
   useEffect(() => {
-    // const data: ICompanyRegistration = cache.data
+    // const data: CompanyRegistration = cache.data
     // if (!data.name) router.push('/signup/graduate')
   }, [cache])
 
@@ -61,7 +61,7 @@ const Education: React.FC = () => {
         }}
         onSkip={() => {
           // cache.update(
-          //   produce(cache.data, (state: ICompanyRegistration) => {
+          //   produce(cache.data, (state: CompanyRegistration) => {
           //     delete state.basicInfo.contact.country
           //     delete state.basicInfo.contact.region
           //     delete state.basicInfo.industry

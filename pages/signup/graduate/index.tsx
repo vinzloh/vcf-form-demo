@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import Header from './header'
 
-const Graduate: React.FC = () => {
+const Graduate = () => {
   const router = useRouter()
   const { handleSubmit, ...formProps } = useForm()
   // { type: 'prefix' },
@@ -34,7 +34,7 @@ const Graduate: React.FC = () => {
     //   name,
     //   basicInfo: { contact: { email } },
     //   user: { email, password },
-    // } as ICompanyRegistration)
+    // } as CompanyRegistration)
     router.push('/signup/graduate/personal')
   }
 

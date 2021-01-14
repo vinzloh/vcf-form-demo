@@ -8,13 +8,13 @@ import TextField from 'components/text-field'
 import useFocusInput from 'hooks/use-focus-input'
 import useForm from 'hooks/use-form'
 import useInMemoryCache from 'hooks/use-memory-cache'
-import ICompanyRegistration from 'interfaces/company-registration'
+import CompanyRegistration from 'definitions/company-registration'
 import { regions } from 'mocks'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import DatePicker from 'components/date-picker'
 
-const Personal: React.FC = () => {
+const Personal = () => {
   const router = useRouter()
   const steps: Array<IStep> = [
     { text: 'Personal Information', isActive: true },
@@ -24,11 +24,11 @@ const Personal: React.FC = () => {
   ]
 
   const cache = useInMemoryCache('graduateRegistration')
-  const data: ICompanyRegistration = cache.data
+  const data: CompanyRegistration = cache.data
   const countries = useCountryList()
 
   useEffect(() => {
-    // const data: ICompanyRegistration = cache.data
+    // const data: CompanyRegistration = cache.data
     // if (!data.name) router.push('/signup/graduate')
   }, [cache])
 
@@ -61,7 +61,7 @@ const Personal: React.FC = () => {
       <StepsForm
         onSkip={() => {
           // cache.update(
-          //   produce(cache.data, (state: ICompanyRegistration) => {
+          //   produce(cache.data, (state: CompanyRegistration) => {
           //     delete state.basicInfo.contact.country
           //     delete state.basicInfo.contact.region
           //     delete state.basicInfo.industry
@@ -72,7 +72,7 @@ const Personal: React.FC = () => {
         onNext={handleSubmit((data: any) => {
           console.log(`onNext:`, data)
           // cache.update(
-          //   produce(cache.data, (state: ICompanyRegistration) => {
+          //   produce(cache.data, (state: CompanyRegistration) => {
           //     state.basicInfo.contact.country = data.country
           //     state.basicInfo.contact.region = data.region
           //     state.basicInfo.industry = data.industry

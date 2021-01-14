@@ -1,21 +1,24 @@
-import TextField from 'components/text-field'
-import IFormControl from 'interfaces/form-control'
 import FormErrorLabel from 'components/form-error-label'
+import TextField from 'components/text-field'
+import FormControl from 'definitions/form-control'
 
-const PhoneNumber: React.FC<{
+type Props = {
   defaultValues?: object
-  prefix?: IFormControl
-  phone?: IFormControl
-}> = ({ defaultValues, prefix = {}, phone = {} }) => {
-  const errors = prefix.errors
-  const prefixError = errors?.[prefix.name as keyof {}]
-  const phoneError = errors?.[phone.name as keyof {}]
-  const name = (prefixError && prefix.name) || (phoneError && phone.name) || ''
+  prefix?: FormControl
+  phone?: FormControl
+}
+
+const PhoneNumber = ({ defaultValues, prefix, phone }: Props) => {
+  const errors = prefix?.errors
+  const prefixError = errors?.[prefix?.name as keyof {}]
+  const phoneError = errors?.[phone?.name as keyof {}]
+  const name =
+    (prefixError && prefix?.name) || (phoneError && phone?.name) || ''
   return (
     <div className="grid grid-cols-12">
       <TextField
-        name={prefix.name || 'prefix'}
-        placeholder={prefix.placeholder || 'Prefix'}
+        name={prefix?.name || 'prefix'}
+        placeholder={prefix?.placeholder || 'Prefix'}
         className="col-span-3"
         inputClassName="rounded-r-none border-r-0 focus:border-r"
         defaultValues={defaultValues}
@@ -23,8 +26,8 @@ const PhoneNumber: React.FC<{
         {...prefix}
       />
       <TextField
-        name={phone.name || 'phone'}
-        placeholder={phone.placeholder || 'Phone number'}
+        name={phone?.name || 'phone'}
+        placeholder={phone?.placeholder || 'Phone number'}
         className="col-span-9"
         inputClassName="rounded-l-none"
         defaultValues={defaultValues}

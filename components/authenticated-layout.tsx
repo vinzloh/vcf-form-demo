@@ -7,11 +7,13 @@ import PageContainer from 'components/page-container'
 import useAuth from 'hooks/use-auth'
 import useLogin from 'hooks/use-login'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 
 const deadCenterStyles = 'flex items-center justify-center'
 
-const Layout: React.FC = (props) => {
+type Props = { children: ReactNode }
+
+const Layout = (props: Props) => {
   const router = useRouter()
   const { data: { status: isAuthenticated } = {} } = useAuth()
 
@@ -36,7 +38,7 @@ const Layout: React.FC = (props) => {
 const navLinkStyles =
   'text-xs lg:text-sm lg:border lg:rounded-full lg:border-gray-200'
 
-const Header: React.FC = () => {
+const Header = () => {
   const { logout } = useLogin()
   return (
     <header className="bg-gray-900 text-gray-200 px-0 py-3 md:py-6">

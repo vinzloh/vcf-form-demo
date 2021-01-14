@@ -9,7 +9,7 @@ import useForm from 'hooks/use-form'
 import useInMemoryCache from 'hooks/use-memory-cache'
 import useLogin from 'hooks/use-login'
 
-const Login: React.FC = () => {
+const Login = () => {
   const { login } = useLogin()
   const { handleSubmit, ...formProps } = useForm(
     { type: 'email' },
