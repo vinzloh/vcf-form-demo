@@ -15,7 +15,7 @@ export const industries = [
   { label: 'Engineering', value: 'engineering' },
 ]
 
-export const jobfunctions = [
+export const jobFunctions = [
   { label: 'Front End Engineer', value: 'front-end-engineer' },
   { label: 'Site Reliability Engineer', value: 'sre' },
 ]

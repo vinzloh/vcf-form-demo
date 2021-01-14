@@ -1,8 +1,8 @@
-import Form from 'components/Form'
-import Layout from 'components/Layout'
-import PieProgress from 'components/PieProgress'
-import Steps, { IStep } from 'components/Steps'
-import StepsNavigation from 'components/StepsNavigation'
+import Form from 'components/form'
+import Layout from 'components/layout'
+import PieProgress from 'components/pie-progress'
+import Steps, { IStep } from 'components/steps'
+import StepsNavigation from 'components/steps-navigation'
 import { useRouter } from 'next/router'
 
 const Done: React.FC = () => {
