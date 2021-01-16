@@ -45,8 +45,8 @@ const Footer: React.FC = () => (
           <ExternalLink href="https://makeithappen.now.sh/">
             Privacy Policy
           </ExternalLink>
-          <ExternalLink href="https://makeithappen.now.sh/">
-            Acceptable Use Policy
+          <ExternalLink href="https://github.com/vinzloh/vcf-form-demo">
+            Source on Github
           </ExternalLink>
         </div>
         <div className="text-gray-500 text-center">
