@@ -1,18 +1,17 @@
-import useCountryList from 'api-calls/useCountryList'
-import useIndustryList from 'api-calls/useIndustryList'
-import useJobFunctionList from 'api-calls/useJobFunctionList'
-import useCurrencies from 'api-calls/useCurrencies'
-import Layout from 'components/Layout'
-import Select from 'components/Select'
-import Steps, { IStep } from 'components/Steps'
-import StepsForm from 'components/StepsForm'
-import TextField from 'components/TextField'
-import useFocusInput from 'hooks/useFocusInput'
-import useForm from 'hooks/useForm'
-import useInMemoryCache from 'hooks/useInMemoryCache'
-import ICompanyRegistration from 'interfaces/CompanyRegistration'
+import useCountryList from 'api-calls/use-countries'
+import useCurrencies from 'api-calls/use-currencies'
+import useIndustryList from 'api-calls/use-industries'
+import useJobFunctions from 'api-calls/use-job-functions'
+import Layout from 'components/layout'
+import Select from 'components/select'
+import Steps, { IStep } from 'components/steps'
+import StepsForm from 'components/steps-form'
+import TextField from 'components/text-field'
+import useFocusInput from 'hooks/use-focus-input'
+import useForm from 'hooks/use-form'
+import useInMemoryCache from 'hooks/use-memory-cache'
+import ICompanyRegistration from 'interfaces/company-registration'
 import { useRouter } from 'next/router'
-import currencies from 'pages/api/currencies'
 import { useEffect } from 'react'
 
 const More: React.FC = () => {
@@ -28,7 +27,7 @@ const More: React.FC = () => {
   const data: ICompanyRegistration = cache.data
   const countries = useCountryList()
   const industries = useIndustryList()
-  const jobFunctions = useJobFunctionList()
+  const jobFunctions = useJobFunctions()
   const currencies = useCurrencies()
 
   useEffect(() => {

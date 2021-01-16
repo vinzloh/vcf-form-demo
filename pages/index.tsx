@@ -1,4 +1,4 @@
-import AuthenticatedLayout from 'components/AuthenticatedLayout'
+import AuthenticatedLayout from 'components/authenticated-layout'
 
 const Home = () => {
   return (

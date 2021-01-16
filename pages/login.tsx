@@ -1,13 +1,13 @@
-import PrimaryButton from 'components/Button/PrimaryButton'
-import Form from 'components/Form'
-import LandingLayout from 'components/Layout/LandingLayout'
-import ShadowLink from 'components/ShadowLink'
-import TermsAndConditions from 'components/TermsAndConditions'
-import TextField from 'components/TextField'
-import useFocusInput from 'hooks/useFocusInput'
-import useForm from 'hooks/useForm'
-import useInMemoryCache from 'hooks/useInMemoryCache'
-import useLogin from 'hooks/useLogin'
+import PrimaryButton from 'components/button/primary-button'
+import Form from 'components/form'
+import LandingLayout from 'components/layout/landing-layout'
+import ShadowLink from 'components/shadow-link'
+import TermsAndConditions from 'components/terms-and-conditions'
+import TextField from 'components/text-field'
+import useFocusInput from 'hooks/use-focus-input'
+import useForm from 'hooks/use-form'
+import useInMemoryCache from 'hooks/use-memory-cache'
+import useLogin from 'hooks/use-login'
 
 const Login: React.FC = () => {
   const { login } = useLogin()
