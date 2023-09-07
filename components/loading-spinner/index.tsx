@@ -1,5 +1,6 @@
+import { type CSSProperties } from 'react'
+
 import styles from './loading-spinner.module.scss'
-import { CSSProperties } from 'react'
 
 const LoadingSpinner: React.FC<{ size?: string }> = ({ size = '80px' }) => (
   <div

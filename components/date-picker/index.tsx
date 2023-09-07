@@ -1,13 +1,13 @@
-import classNames from 'classnames'
-import FormErrorLabel from 'components/form-error-label'
-import IFormControl from 'interfaces/form-control'
-import ReactDatePicker from 'react-datepicker'
-import { Controller } from 'react-hook-form'
-import styles from './date-picker.module.scss'
+import classNames from 'classnames';
+import FormErrorLabel from 'components/form-error-label';
+import type IFormControl from 'interfaces/form-control';
+import ReactDatePicker from 'react-datepicker';
+import { Controller } from 'react-hook-form';
+import styles from './date-picker.module.scss';
 
 type Props = IFormControl & {
-  scrollMarginTop?: number
-}
+  scrollMarginTop?: number;
+};
 
 const DatePicker: React.FC<Props> = ({
   name,
@@ -18,11 +18,11 @@ const DatePicker: React.FC<Props> = ({
   watch = () => {},
   scrollMarginTop = 0,
 }) => {
-  const fieldError = errors[name as keyof {}] as any
-  const error = fieldError?.message
-  const defaultValue = defaultValues[name as keyof {}] || null
-  const hasError = !!(errors[name as keyof {}] as any)?.message
-  const hasValue = !!watch(name)
+  const fieldError = errors[name as keyof {}] as any;
+  const error = fieldError?.message;
+  const defaultValue = defaultValues[name as keyof {}] || null;
+  const hasError = !!(errors[name as keyof {}] as any)?.message;
+  const hasValue = !!watch(name);
   return (
     <Controller
       control={control}
@@ -43,7 +43,7 @@ const DatePicker: React.FC<Props> = ({
               selected={value}
               className={classNames(
                 styles.datepicker,
-                hasError || !hasValue ? 'bg-gray-200' : 'bg-gray-100'
+                hasError || !hasValue ? 'bg-gray-200' : 'bg-gray-100',
               )}
               popperModifiers={{
                 preventOverflow: {
@@ -56,9 +56,9 @@ const DatePicker: React.FC<Props> = ({
             />
             {error && <FormErrorLabel {...{ name, errors }} />}
           </div>
-        )
+        );
       }}
     />
-  )
-}
-export default DatePicker
+  );
+};
+export default DatePicker;

@@ -1,23 +1,23 @@
-import classNames from 'classnames'
-import Button from 'components/button'
-import Footer from 'components/footer'
-import Head from 'components/head'
-import LoadingSpinner from 'components/loading-spinner'
-import PageContainer from 'components/page-container'
-import useAuth from 'hooks/use-auth'
-import useLogin from 'hooks/use-login'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import classNames from 'classnames';
+import Button from 'components/button';
+import Footer from 'components/footer';
+import Head from 'components/head';
+import LoadingSpinner from 'components/loading-spinner';
+import PageContainer from 'components/page-container';
+import useAuth from 'hooks/use-auth';
+import useLogin from 'hooks/use-login';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-const deadCenterStyles = 'flex items-center justify-center'
+const deadCenterStyles = 'flex items-center justify-center';
 
-const Layout: React.FC = (props) => {
-  const router = useRouter()
-  const { data: { status: isAuthenticated } = {} } = useAuth()
+const Layout = (props: { children: React.ReactNode }) => {
+  const router = useRouter();
+  const { data: { status: isAuthenticated } = {} } = useAuth();
 
   useEffect(() => {
-    if (!isAuthenticated) router.push('/login')
-  }, [isAuthenticated, router])
+    if (!isAuthenticated) router.push('/login');
+  }, [isAuthenticated, router]);
 
   return isAuthenticated ? (
     <div>
@@ -30,14 +30,14 @@ const Layout: React.FC = (props) => {
     <div className="flex items-center justify-center w-screen h-screen">
       <LoadingSpinner />
     </div>
-  )
-}
+  );
+};
 
 const navLinkStyles =
-  'text-xs lg:text-sm lg:border lg:rounded-full lg:border-gray-200'
+  'text-xs lg:text-sm lg:border lg:rounded-full lg:border-gray-200';
 
 const Header: React.FC = () => {
-  const { logout } = useLogin()
+  const { logout } = useLogin();
   return (
     <header className="bg-gray-900 text-gray-200 px-0 py-3 md:py-6">
       <PageContainer className="lg:flex flex-row justify-between">
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
         </div>
       </PageContainer>
     </header>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

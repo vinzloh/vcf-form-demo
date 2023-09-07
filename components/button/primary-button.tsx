@@ -1,7 +1,7 @@
-import Button, { IButton } from './button'
 import classNames from 'classnames'
+import Button, { type ButtonProps } from './button'
 
-const PrimaryButton: React.FC<IButton> = ({ className, ...props }) => (
+const PrimaryButton = ({ className, ...props }: ButtonProps) => (
   <Button
     className={classNames('bg-primary text-white', className)}
     {...props}
