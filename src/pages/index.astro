@@ -1,19 +1,25 @@
 ---
 // Welcome to Astro! Everything between these triple-dash code fences
 // is your "component frontmatter". It never runs in the browser.
-// TODO: rm
-import  {Hello} from "../components/hello"
+import { Link } from '@/components/link';
+import AuthenticatedLayout from '@/layouts/authenticated-layout.astro';
+
+if (!Astro.cookies.get('authenticated')?.boolean()) {
+  return Astro.redirect('/login');
+}
 ---
+
 <!-- Below is your "component template." It's just HTML, but with
      some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
-    <h1>Hello, World!</h1>
-    <Hello />
-  </body>
-</html>
-<style>
-  h1 {
-    color: orange;
-  }
-</style>
+<AuthenticatedLayout>
+  Pick one
+  <div class="text-white flxex itexms-center my-8">
+    <Link href="/signup/graduate">
+      <span class="font-semibold text-secondary">Graduate</span>
+    </Link>
+    <span class="mx-4"></span>
+    <Link href="/signup/company">
+      <span class="font-semibold text-primary">Company</span>
+    </Link>
+  </div>
+</AuthenticatedLayout>

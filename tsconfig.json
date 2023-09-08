@@ -16,5 +16,6 @@
   },
   "exclude": ["node_modules"],
   "extends": "astro/tsconfigs/base",
-  "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "src"]
+  "include": ["src"]
+  // "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "src"]
 }
