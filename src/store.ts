@@ -1,6 +1,6 @@
 import { map, atom } from 'nanostores';
 
-export type Route = 'graduate' | 'personal' | 'more' | 'education';
+export type Route = 'graduate' | 'personal' | 'more' | 'education' | 'done';
 
 export const $graduateRoute = atom<Route>('graduate');
 
@@ -21,6 +21,12 @@ export interface GraduateFormValues {
   preferredIndustry: string;
   preferredJobFunction: string;
   desiredWorkLocation: string;
+  universityName: string;
+  universityCountry: string;
+  universityCourse: string;
+  qualification: string;
+  admissionDate: Date | undefined;
+  graduationDate: Date | undefined;
 }
 
 export const $graduate = map<{ graduate: GraduateFormValues }>({
@@ -41,5 +47,11 @@ export const $graduate = map<{ graduate: GraduateFormValues }>({
     preferredIndustry: '',
     preferredJobFunction: '',
     desiredWorkLocation: '',
+    universityName: '',
+    universityCountry: '',
+    universityCourse: '',
+    qualification: '',
+    admissionDate: undefined,
+    graduationDate: undefined,
   },
 });

@@ -31,6 +31,9 @@ export function More() {
       <StepsForm
         onBack={() => $graduateRoute.set('personal')}
         onSkip={() => $graduateRoute.set('education')}
+        onNext={formProps.handleSubmit(() => {
+          $graduateRoute.set('education');
+        })}
       >
         <Select
           name="expectedCurrency"

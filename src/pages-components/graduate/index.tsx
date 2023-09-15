@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { Personal } from './personal';
 import { SignUp } from './signup';
 import { More } from './more';
+import { Education } from './education';
 import { useGraduateFormValues } from './use-graduate-form-values';
 import { useGraduateRoute } from './use-graduate-route';
 
@@ -35,6 +36,7 @@ export function Graduate() {
     .with('graduate', () => SignUp)
     .with('personal', () => Personal)
     .with('more', () => More)
+    .with('education', () => Education)
     .otherwise(() => () => <></>);
 
   return (
