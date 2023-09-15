@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import { Personal } from './personal';
 import { SignUp } from './signup';
+import { More } from './more';
 import { useGraduateFormValues } from './use-graduate-form-values';
 import { useGraduateRoute } from './use-graduate-route';
 
@@ -33,6 +34,7 @@ export function Graduate() {
   const Component = match(graduateRoute)
     .with('graduate', () => SignUp)
     .with('personal', () => Personal)
+    .with('more', () => More)
     .otherwise(() => () => <></>);
 
   return (
