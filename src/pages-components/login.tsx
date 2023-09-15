@@ -52,7 +52,6 @@ export function Login() {
       tnc: true,
     },
   });
-  console.table(formProps.formState.errors);
 
   if (isAuthenticated) return <></>;
   return (

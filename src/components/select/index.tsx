@@ -45,7 +45,7 @@ export function Select<
     control,
   });
   const getOptionByValue = (value: string) =>
-    options.filter((option) => value.includes((option as any).value));
+    options.filter((option) => value?.includes((option as any)?.value));
   const { errors } = formState;
   const isMultiple = Array.isArray(field.value);
 

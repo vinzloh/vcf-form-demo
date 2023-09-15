@@ -10,6 +10,7 @@ interface StepsFormProps {
   onSkip?: () => void;
   onNext?: () => void;
   onFinish?: () => void;
+  className?: string;
 }
 
 export function StepsForm({
@@ -18,11 +19,16 @@ export function StepsForm({
   onFinish,
   onSkip,
   onNext,
+  className,
 }: StepsFormProps) {
   return (
-    <Form className="max-w-xs w-full sm:w-1/2 px-2">
-      <div className="px-4 py-6 bg-white shadow-md grid gap-2">{children}</div>
-      <div className={classNames('flex justify-between', 'pt-4')}>
+    <Form
+      className={
+        className ?? 'max-w-xs w-full sm:w-1/2 px-2 bg-white shadow-md'
+      }
+    >
+      <div className="px-4 pt-6 grid gap-2">{children}</div>
+      <div className={classNames('flex justify-between', 'p-4')}>
         {onBack ? <TextButton onClick={onBack}>Back</TextButton> : <div />}
         <div className="flex items-center">
           {onFinish ? (

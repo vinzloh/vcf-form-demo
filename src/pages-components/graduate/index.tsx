@@ -1,12 +1,13 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, useForm } from 'react-hook-form';
 import { match } from 'ts-pattern';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import { Done } from './done';
+import { Education } from './education';
+import { More } from './more';
 import { Personal } from './personal';
 import { SignUp } from './signup';
-import { More } from './more';
-import { Education } from './education';
 import { useGraduateFormValues } from './use-graduate-form-values';
 import { useGraduateRoute } from './use-graduate-route';
 
@@ -30,13 +31,13 @@ export function Graduate() {
     resolver: yupResolver(schema),
     values: graduateFormValues,
   });
-  console.table(formProps.formState.errors);
 
   const Component = match(graduateRoute)
     .with('graduate', () => SignUp)
     .with('personal', () => Personal)
     .with('more', () => More)
     .with('education', () => Education)
+    .with('done', () => Done)
     .otherwise(() => () => <></>);
 
   return (

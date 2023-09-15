@@ -8,7 +8,7 @@ import {
 
 import { FormErrorLabel } from '@/components/form-error-label';
 
-import styles from './text-field.module.scss';
+import styles from './index.module.css';
 
 type InputProps = Omit<JSX.IntrinsicElements['input'], 'name'>;
 
@@ -44,9 +44,7 @@ export const TextField = React.forwardRef(
 
     return (
       <div className={classNames(styles.layout, className)}>
-        <label id="yolo" htmlFor={name}>
-          {label}
-        </label>
+        <label htmlFor={name}>{label}</label>
         <input
           id={name}
           autoComplete="off"

@@ -1,6 +1,6 @@
 import { type CSSProperties } from 'react';
 
-import styles from './loading-spinner.module.scss';
+import styles from './index.module.scss';
 
 export const LoadingSpinner = ({ size = '80px' }: { size?: string }) => (
   <div

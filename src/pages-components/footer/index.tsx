@@ -1,9 +1,11 @@
 import classNames from 'classnames';
+import FacebookIcon from '~icons/custom/facebook-icon';
+import LinkedInIcon from '~icons/custom/linkedin-icon';
 
 import { Link } from '@/components/link';
 import { PageContainer } from '@/components/page-container';
 
-import styles from './footer.module.scss';
+import styles from './index.module.css';
 
 export const Footer = () => (
   <footer className="py-4 text-xs">
@@ -24,17 +26,13 @@ export const Footer = () => (
           <div>Stay in touch:</div>
           <div className="flex">
             <Link href="https://makeithappen.now.sh/">
-              <img
-                src="/facebook-icon.svg"
-                width="30"
-                className={classNames(styles.facebook, 'ml-4')}
+              <FacebookIcon
+                className={classNames(styles.facebook, 'text-[#a6a6a6] ml-4')}
               />
             </Link>
             <Link href="https://makeithappen.now.sh/">
-              <img
-                src="/linkedin-icon.svg"
-                width="30"
-                className={classNames(styles.linkedIn, 'ml-4')}
+              <LinkedInIcon
+                className={classNames(styles.linkedIn, 'text-[#a6a6a6] ml-4')}
               />
             </Link>
           </div>

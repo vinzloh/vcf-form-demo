@@ -1,8 +1,6 @@
 import classNames from 'classnames';
 import { type UseFormReturn } from 'react-hook-form';
 
-import styles from './form-error-label.module.scss';
-
 type FormErrorLabelProps = {
   name: string;
   className?: string;
@@ -17,7 +15,12 @@ export const FormErrorLabel = ({
   const error = errors[name]?.message;
   return (
     <div
-      className={classNames(styles.error, className, error && styles.hasError)}
+      className={classNames(
+        'text-red-700 text-xs m-1 bottom-0',
+        'transform transition-transform ease-in duration-150',
+        error ? 'relative translate-y-0' : 'absolute -translate-y-3',
+        className,
+      )}
     >
       {error?.toString()}
     </div>

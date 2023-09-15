@@ -1,0 +1,13 @@
+.linkedIn {
+  &:hover {
+    g > path {
+      fill: #0077b5;
+    }
+  }
+}
+
+.facebook {
+  &:hover > path {
+    fill: #0a82eb;
+  }
+}

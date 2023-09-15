@@ -8,7 +8,7 @@ import {
 
 import { FormErrorLabel } from '@/components/form-error-label';
 
-import './index.scss';
+import './index.css';
 
 interface DatePickerProps<TFieldValues extends FieldValues>
   extends Omit<ReactDatePickerProps, 'name' | 'onChange'>,

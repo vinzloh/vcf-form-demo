@@ -1,0 +1,113 @@
+// -- vars
+$bg-color: #34495e;
+$default-size: 1em;
+$label-font-size: calc($default-size / 5);
+$label-font-size-redo: $default-size * 4;
+$progress-value: 40;
+
+// -- mixins
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
+
+@mixin draw-progress($progress, $color) {
+  @keyframes fill {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate($progress * 3.6deg);
+    }
+  }
+
+  .pie {
+    .half-circle {
+      border-color: $color;
+    }
+
+    .left-side {
+      transform: rotate($progress * 3.6deg);
+      animation: fill ease-in-out 1s;
+    }
+
+    @if $progress <= 50 {
+      .right-side {
+        display: none;
+      }
+    } @else {
+      clip: rect(auto, auto, auto, auto);
+      .right-side {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// -- selectors
+
+.container {
+  font-size: 10rem;
+}
+
+.pie-wrapper {
+  @include size($default-size, $default-size);
+  float: left;
+  margin: 15px;
+  position: relative;
+
+  &:nth-child(3n + 1) {
+    clear: both;
+  }
+
+  .pie {
+    @include size(100%, 100%);
+    clip: rect(0, $default-size, $default-size, calc($default-size / 2));
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    .half-circle {
+      @include size(100%, 100%);
+      border: calc($default-size / 10) solid #3498db;
+      border-radius: 50%;
+      clip: rect(0, calc($default-size / 2), $default-size, 0);
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .label {
+    background: $bg-color;
+    border-radius: 50%;
+    bottom: calc($label-font-size-redo / 10);
+    color: #ecf0f1;
+    cursor: default;
+    font-size: $label-font-size;
+    left: calc($label-font-size-redo / 10);
+    position: absolute;
+    right: calc($label-font-size-redo / 10);
+    text-align: center;
+    top: calc($label-font-size-redo / 10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .shadow {
+    @include size(100%, 100%);
+    border: calc($default-size / 10) solid #bdc3c7;
+    border-radius: 50%;
+  }
+
+  .label {
+    background: none;
+    color: #2a2e32;
+    font-weight: 500;
+  }
+
+  @include draw-progress($progress-value, #93c13d);
+}
