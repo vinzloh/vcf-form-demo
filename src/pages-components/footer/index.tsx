@@ -1,6 +1,4 @@
 import classNames from 'classnames';
-import FacebookSvgProps from 'public/facebook-icon.svg';
-import LinkedInSvgProps from 'public/linkedin-icon.svg';
 
 import { Link } from '@/components/link';
 import { PageContainer } from '@/components/page-container';
@@ -27,14 +25,14 @@ export const Footer = () => (
           <div className="flex">
             <Link href="https://makeithappen.now.sh/">
               <img
-                {...FacebookSvgProps}
+                src="/facebook-icon.svg"
                 width="30"
                 className={classNames(styles.facebook, 'ml-4')}
               />
             </Link>
             <Link href="https://makeithappen.now.sh/">
               <img
-                {...LinkedInSvgProps}
+                src="/linkedin-icon.svg"
                 width="30"
                 className={classNames(styles.linkedIn, 'ml-4')}
               />
@@ -51,7 +49,7 @@ export const Footer = () => (
           </Link>
         </FooterFirstRow>
         <div className="text-gray-500 text-center">
-          Vinz Loh © 2020. All rights reserved.
+          Maintained with 💛 | 2023
         </div>
       </FooterRow>
     </PageContainer>

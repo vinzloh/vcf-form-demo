@@ -1,0 +1,24 @@
+/* why global? https://github.com/vercel/next.js/issues/10142#issuecomment-578527787 */
+@import 'react-datepicker/dist/react-datepicker.css';
+
+[data-date-picker] {
+  .react-datepicker {
+    @apply border-none shadow-md;
+  }
+  .react-datepicker__header {
+    @apply border-transparent bg-gray-100;
+  }
+
+  .react-datepicker__navigation-icon--previous::before,
+  .react-datepicker__navigation-icon--next::before {
+    top: 13px;
+  }
+
+  .react-datepicker__day--keyboard-selected,
+  .react-datepicker__month-text--keyboard-selected,
+  .react-datepicker__quarter-text--keyboard-selected,
+  .react-datepicker__year-text--keyboard-selected,
+  .react-datepicker__day--selected {
+    @apply bg-primary text-white;
+  }
+}
