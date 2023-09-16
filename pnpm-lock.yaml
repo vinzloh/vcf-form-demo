@@ -22,7 +22,7 @@ dependencies:
     version: 0.7.1(nanostores@0.9.3)(react@18.2.0)
   astro:
     specifier: ^3.0.9
-    version: 3.0.12(@types/node@18.17.14)(sass@1.67.0)
+    version: 3.0.12(@types/node@18.17.14)
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
@@ -37,7 +37,7 @@ dependencies:
     version: 0.9.3
   next:
     specifier: 12.1.6
-    version: 12.1.6(@babel/core@7.22.15)(react-dom@18.2.0)(react@18.2.0)(sass@1.67.0)
+    version: 12.1.6(@babel/core@7.22.15)(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -145,9 +145,6 @@ devDependencies:
   prettier-plugin-astro:
     specifier: ^0.12.0
     version: 0.12.0
-  sass:
-    specifier: ^1.67.0
-    version: 1.67.0
   stale-dep:
     specifier: ^0.7.0
     version: 0.7.0
@@ -210,7 +207,7 @@ packages:
       astro: ^3.0.11
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 3.0.12(@types/node@18.17.14)(sass@1.67.0)
+      astro: 3.0.12(@types/node@18.17.14)
       github-slugger: 2.0.0
       import-meta-resolve: 3.0.0
       rehype-raw: 6.1.1
@@ -261,7 +258,7 @@ packages:
       astro: ^3.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 3.0.12(@types/node@18.17.14)(sass@1.67.0)
+      astro: 3.0.12(@types/node@18.17.14)
       autoprefixer: 10.4.15(postcss@8.4.29)
       postcss: 8.4.29
       postcss-load-config: 4.0.1(postcss@8.4.29)
@@ -294,7 +291,7 @@ packages:
       '@astrojs/internal-helpers': 0.2.0
       '@vercel/analytics': 1.0.2
       '@vercel/nft': 0.23.1
-      astro: 3.0.12(@types/node@18.17.14)(sass@1.67.0)
+      astro: 3.0.12(@types/node@18.17.14)
       esbuild: 0.19.2
       fast-glob: 3.3.1
       set-cookie-parser: 2.6.0
@@ -1790,7 +1787,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.15)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.15)
       react-refresh: 0.14.0
-      vite: 4.4.9(@types/node@18.17.14)(sass@1.67.0)
+      vite: 4.4.9(@types/node@18.17.14)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -2005,7 +2002,7 @@ packages:
       - supports-color
     dev: true
 
-  /astro@3.0.12(@types/node@18.17.14)(sass@1.67.0):
+  /astro@3.0.12(@types/node@18.17.14):
     resolution: {integrity: sha512-nDLI9OGEjYIX90a1Md1orqyurPxqXTWTy7Sm3ZsWl5dpzSjcUXo3VB/GTvNjAMS9sE40BOxhay7/hnnQuI8p7A==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -2060,7 +2057,7 @@ packages:
       undici: 5.23.0
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.4.9(@types/node@18.17.14)(sass@1.67.0)
+      vite: 4.4.9(@types/node@18.17.14)
       vitefu: 0.2.4(vite@4.4.9)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -3711,9 +3708,6 @@ packages:
     resolution: {integrity: sha512-yM7jo9+hvYgvdCQdqvhCNRRio0SCXc8xDPzA25SvKWa7b1WVPjLwQs1VYU5JPXjcJPTqAa5NP5dqpORGYBQ2AA==}
     dev: false
 
-  /immutable@4.3.4:
-    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
-
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -4792,7 +4786,7 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next@12.1.6(@babel/core@7.22.15)(react-dom@18.2.0)(react@18.2.0)(sass@1.67.0):
+  /next@12.1.6(@babel/core@7.22.15)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-cebwKxL3/DhNKfg9tPZDQmbRKjueqykHHbgaoG4VBRH3AHQJ2HO0dbKFiS1hPhe1/qgc2d/hFeadsbPicmLD+A==}
     engines: {node: '>=12.22.0'}
     hasBin: true
@@ -4815,7 +4809,6 @@ packages:
       postcss: 8.4.5
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.67.0
       styled-jsx: 5.0.2(@babel/core@7.22.15)(react@18.2.0)
     optionalDependencies:
       '@next/swc-android-arm-eabi': 12.1.6
@@ -5774,15 +5767,6 @@ packages:
       suf-log: 2.5.3
     dev: true
 
-  /sass@1.67.0:
-    resolution: {integrity: sha512-SVrO9ZeX/QQyEGtuZYCVxoeAL5vGlYjJ9p4i4HFuekWl8y/LtJ7tJc10Z+ck1c8xOuoBm2MYzcLfTAffD0pl/A==}
-    engines: {node: '>=14.0.0'}
-    hasBin: true
-    dependencies:
-      chokidar: 3.5.3
-      immutable: 4.3.4
-      source-map-js: 1.0.2
-
   /scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
@@ -6682,7 +6666,7 @@ packages:
       vfile-message: 3.1.4
     dev: false
 
-  /vite@4.4.9(@types/node@18.17.14)(sass@1.67.0):
+  /vite@4.4.9(@types/node@18.17.14):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -6714,7 +6698,6 @@ packages:
       esbuild: 0.18.20
       postcss: 8.4.29
       rollup: 3.29.0
-      sass: 1.67.0
     optionalDependencies:
       fsevents: 2.3.3
     dev: false
@@ -6727,7 +6710,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.9(@types/node@18.17.14)(sass@1.67.0)
+      vite: 4.4.9(@types/node@18.17.14)
     dev: false
 
   /vscode-oniguruma@1.7.0:
