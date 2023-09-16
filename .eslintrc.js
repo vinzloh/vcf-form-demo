@@ -24,6 +24,12 @@ module.exports = defineConfig({
   settings: { react: { version: 'detect' } },
   overrides: [
     {
+      files: ['*.config.{js,mjs,cjs}'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': ['off'],
+      },
+    },
+    {
       files: ['src/**/*.{js,jsx,ts,tsx}'],
       rules: {
         '@typescript-eslint/no-explicit-any': ['warn'],

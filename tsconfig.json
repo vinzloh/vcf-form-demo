@@ -12,7 +12,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "strict": true
+    "strict": true,
+    "types": ["unplugin-icons/types/react"]
   },
   "exclude": ["node_modules"],
   "extends": "astro/tsconfigs/base",
