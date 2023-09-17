@@ -5,10 +5,11 @@ import * as Yup from 'yup';
 
 import type { CompanyFormValues } from '@/store';
 
-import { SignUp } from './signup';
 import { Basic } from './basic';
+import { SignUp } from './signup';
 import { useCompanyFormValues } from './use-company-form-values';
 import { useCompanyRoute } from './use-company-route';
+import { User } from './user';
 
 const schema = Yup.object<Partial<CompanyFormValues>>({
   name: Yup.string().required('Required'),
@@ -34,9 +35,6 @@ export function Company() {
     resolver: yupResolver(schema),
     values: formValues,
   });
-
-  // TODO:
-  const User = () => <>User</>;
 
   const Component = match(graduateRoute)
     .with('company', () => SignUp)
