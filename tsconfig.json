@@ -1,34 +1,22 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "incremental": true,
+    "jsx": "preserve",
+    "jsxImportSource": "react",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "strict": true,
+    "types": ["unplugin-icons/types/react"]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "custom.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "extends": "astro/tsconfigs/base",
+  "include": ["src"]
+  // "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "src"]
 }

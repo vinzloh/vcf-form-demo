@@ -1,13 +1,14 @@
-import IFormControl from 'interfaces/form-control'
-import FormErrorLabel from 'components/form-error-label'
+import type IFormControl from 'interfaces/form-control';
+import FormErrorLabel from 'components/form-error-label';
+import * as React from 'react';
 
-const Checkbox: React.FC<IFormControl> = ({
+const Checkbox = ({
   name,
   children,
   register,
   errors,
   defaultValues = {},
-}) => (
+}: IFormControl & { children: React.ReactNode }) => (
   <div>
     <label className="flex items-center">
       <input
@@ -21,6 +22,6 @@ const Checkbox: React.FC<IFormControl> = ({
     </label>
     <FormErrorLabel {...{ name, errors }} />
   </div>
-)
+);
 
-export default Checkbox
+export default Checkbox;

@@ -1,19 +1,14 @@
 import classNames from 'classnames'
 
-export interface IButton {
-  type?: 'button' | 'submit'
-  onClick?: () => void
-  className?: string
-  disabled?: boolean
-}
+export type ButtonProps = JSX.IntrinsicElements['button']
 
-const Button: React.FC<IButton> = ({
+const Button = ({
   type,
   children,
   onClick = () => {},
   className = 'px-3 py-1',
   disabled,
-}) => (
+}: ButtonProps) => (
   <button
     type={type || 'button'}
     className={classNames(
