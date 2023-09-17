@@ -70,6 +70,9 @@ export interface CompanyFormValues {
   email: string;
   password: string;
   tnc: boolean;
+  country: string;
+  region: string;
+  industry: string;
 }
 
 export const $company = map<{ company: CompanyFormValues }>({
@@ -78,5 +81,8 @@ export const $company = map<{ company: CompanyFormValues }>({
     email: 'yolo@gmail.com',
     password: 'password',
     tnc: true,
+    country: '',
+    region: '',
+    industry: '',
   },
 });

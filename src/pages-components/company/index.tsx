@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import type { CompanyFormValues } from '@/store';
 
 import { SignUp } from './signup';
+import { Basic } from './basic';
 import { useCompanyFormValues } from './use-company-form-values';
 import { useCompanyRoute } from './use-company-route';
 
@@ -35,7 +36,6 @@ export function Company() {
   });
 
   // TODO:
-  const Basic = () => <>Basic</>;
   const User = () => <>User</>;
 
   const Component = match(graduateRoute)
