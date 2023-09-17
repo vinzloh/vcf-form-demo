@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import { ProgressCircle } from '@/components/progress-circle';
+import { Steps, type IStep } from '@/components/steps';
+import { StepsForm } from '@/components/steps-form';
 import { $graduateRoute } from '@/store';
-
-import { Steps, type IStep } from './steps';
-import { StepsForm } from './steps-form';
 
 export function Done() {
   const [percent, setPercent] = React.useState(0);

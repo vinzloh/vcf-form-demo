@@ -1,15 +1,14 @@
 import { useFormContext } from 'react-hook-form';
 
 import { Select } from '@/components/select';
+import { Steps, type IStep } from '@/components/steps';
+import { StepsForm } from '@/components/steps-form';
 import { TextField } from '@/components/text-field';
 import { useCountries } from '@/hooks/use-countries';
 import { useCurrencies } from '@/hooks/use-currencies';
 import { useIndustryList } from '@/hooks/use-industries';
 import { useJobFunctions } from '@/hooks/use-job-functions';
 import { $graduateRoute, type GraduateFormValues } from '@/store';
-
-import { Steps, type IStep } from './steps';
-import { StepsForm } from './steps-form';
 
 export function More() {
   const formProps = useFormContext<GraduateFormValues>();
