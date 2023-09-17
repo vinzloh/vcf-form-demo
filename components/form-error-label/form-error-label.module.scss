@@ -1,9 +1,0 @@
-.error {
-  @apply text-red-700 text-xs m-1 bottom-0;
-  @apply transition-transform ease-in duration-150;
-  @apply absolute transform -translate-y-3;
-
-  &.hasError {
-    @apply relative transform translate-y-0;
-  }
-}

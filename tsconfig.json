@@ -5,8 +5,6 @@
     "incremental": true,
     "jsx": "preserve",
     "jsxImportSource": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
@@ -18,5 +16,4 @@
   "exclude": ["node_modules"],
   "extends": "astro/tsconfigs/base",
   "include": ["src"]
-  // "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "src"]
 }
