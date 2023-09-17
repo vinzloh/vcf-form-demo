@@ -1,8 +1,13 @@
 import { map, atom } from 'nanostores';
 
-export type Route = 'graduate' | 'personal' | 'more' | 'education' | 'done';
+export type GraduateRoute =
+  | 'graduate'
+  | 'personal'
+  | 'more'
+  | 'education'
+  | 'done';
 
-export const $graduateRoute = atom<Route>('graduate');
+export const $graduateRoute = atom<GraduateRoute>('graduate');
 
 export interface GraduateFormValues {
   firstName: string;
@@ -53,5 +58,25 @@ export const $graduate = map<{ graduate: GraduateFormValues }>({
     qualification: '',
     admissionDate: undefined,
     graduationDate: undefined,
+  },
+});
+
+export type CompanyRoute = 'company' | 'basic' | 'user';
+
+export const $companyRoute = atom<CompanyRoute>('company');
+
+export interface CompanyFormValues {
+  name: string;
+  email: string;
+  password: string;
+  tnc: boolean;
+}
+
+export const $company = map<{ company: CompanyFormValues }>({
+  company: {
+    name: 'Yolo Sdn Bhd',
+    email: 'yolo@gmail.com',
+    password: 'password',
+    tnc: true,
   },
 });

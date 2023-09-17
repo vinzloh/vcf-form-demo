@@ -3,19 +3,14 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { match } from 'ts-pattern';
 import * as Yup from 'yup';
 
-import type { GraduateFormValues } from '@/store';
+import type { CompanyFormValues } from '@/store';
 
-import { Done } from './done';
-import { Education } from './education';
-import { More } from './more';
-import { Personal } from './personal';
 import { SignUp } from './signup';
-import { useGraduateFormValues } from './use-graduate-form-values';
-import { useGraduateRoute } from './use-graduate-route';
+import { useCompanyFormValues } from './use-company-form-values';
+import { useCompanyRoute } from './use-company-route';
 
-const schema = Yup.object<Partial<GraduateFormValues>>({
-  firstName: Yup.string().required('Required'),
-  lastName: Yup.string().required('Required'),
+const schema = Yup.object<Partial<CompanyFormValues>>({
+  name: Yup.string().required('Required'),
   email: Yup.string()
     .email('Email not valid')
     .required('This field is required'),
@@ -30,21 +25,23 @@ const schema = Yup.object<Partial<GraduateFormValues>>({
     .oneOf([true], 'Please accept the terms of use and privacy policy'),
 });
 
-export function Graduate() {
-  const graduateFormValues = useGraduateFormValues();
-  const graduateRoute = useGraduateRoute();
+export function Company() {
+  const formValues = useCompanyFormValues();
+  const graduateRoute = useCompanyRoute();
   const formProps = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
-    values: graduateFormValues,
+    values: formValues,
   });
 
+  // TODO:
+  const Basic = () => <>Basic</>;
+  const User = () => <>User</>;
+
   const Component = match(graduateRoute)
-    .with('graduate', () => SignUp)
-    .with('personal', () => Personal)
-    .with('more', () => More)
-    .with('education', () => Education)
-    .with('done', () => Done)
+    .with('company', () => SignUp)
+    .with('basic', () => Basic)
+    .with('user', () => User)
     .otherwise(() => () => <></>);
 
   return (
