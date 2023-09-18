@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
@@ -24,9 +23,10 @@ module.exports = defineConfig({
   settings: { react: { version: 'detect' } },
   overrides: [
     {
-      files: ['*.config.{js,mjs,cjs}'],
+      files: ['*.config.{js,mjs,cjs}', '.eslintrc.*'],
       rules: {
         '@typescript-eslint/no-unused-vars': ['off'],
+        '@typescript-eslint/no-var-requires': ['off'],
       },
     },
     {

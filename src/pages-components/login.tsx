@@ -11,11 +11,7 @@ import { TextField } from '@/components/text-field';
 import { useAuth } from '@/hooks/use-auth';
 import { useLogin } from '@/hooks/use-login';
 
-const schema = Yup.object({
-  // text: Yup.string().required('This field is required'),
-  // date: Yup.string().nullable().required('This field is required'),
-  // prefix: Yup.string().required('Prefix is required'),
-  // phone: Yup.string().required('Phone is required'),
+const schema = Yup.object<Partial<FormValues>>({
   email: Yup.string()
     .email('Email not valid')
     .required('This field is required'),
@@ -43,7 +39,7 @@ export function Login() {
   }, [isAuthenticated]);
 
   const { login } = useLogin();
-  const { handleSubmit, ...formProps } = useForm<FormValues>({
+  const { handleSubmit, ...formProps } = useForm<Partial<FormValues>>({
     mode: 'onChange',
     resolver: yupResolver(schema),
     values: {
