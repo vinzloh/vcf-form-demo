@@ -23,7 +23,7 @@
     "@astrojs/vercel": "^4.0.4",
     "@hookform/resolvers": "^3.3.1",
     "@nanostores/react": "^0.7.1",
-    "astro": "^3.0.9",
+    "astro": "^3.1.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "nanostores": "^0.9.3",
@@ -40,7 +40,6 @@
   "devDependencies": {
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "@types/classnames": "^2.3.1",
     "@types/node": "^18.14.1",
     "@types/react": "^18.2.7",
     "@types/react-datepicker": "^4.15.0",
