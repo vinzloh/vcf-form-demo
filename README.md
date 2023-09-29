@@ -6,7 +6,7 @@
 
 ## Highlights
 
-- This is a [Next.js](https://nextjs.org/) app deployed on [Vercel](https://vercel.com)
+- This is a [Astro](https://astro.build/) app deployed on [Vercel](https://vercel.com)
 - [TypeScript](https://www.typescriptlang.org/) for that strong typing goodness
 - [TailwindCSS](https://tailwindcss.com/) for [Utility-First CSS](https://frontstuff.io/in-defense-of-utility-first-css)
 - [swr](https://swr.vercel.app/) for near real-time deduped data-fetching
@@ -19,11 +19,7 @@
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.

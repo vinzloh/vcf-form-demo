@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/base-layout.astro';
+import { Authenticated } from '@/pages-components/authenticated';
+import { AuthedHeader } from '@/pages-components/authenticated-header';
+import { Footer } from '@/pages-components/footer';
+---
+
+<BaseLayout>
+  <AuthedHeader client:load />
+  <main
+    class="bg-gray-100 pb-8 justify-center items-center flex flex-col flex-1"
+  >
+    <Authenticated client:load>
+      <slot />
+    </Authenticated>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import { Login } from '@/pages-components/login';
+import PublicLayout from '@/layouts/public-layout.astro';
+
+if (Astro.cookies.get('authenticated')?.boolean()) {
+  return Astro.redirect('/');
+}
+---
+
+<PublicLayout>
+  <Login client:only="react" />
+</PublicLayout>
