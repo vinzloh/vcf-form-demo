@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest']
-        node-version: ['18.x']
+        node-version: ['22.x']
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
       - name: 'Setup pnpm'
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: 'pnpm install'
         run: pnpm i
