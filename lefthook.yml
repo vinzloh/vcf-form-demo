@@ -1,0 +1,13 @@
+# https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-commit:
+  parallel: true
+  commands:
+    frontend:prettier:
+      glob: 'src/**/*'
+      run: pnpm prettier --write --cache --ignore-unknown {staged_files}
+      stage_fixed: true
+    frontend:eslint:
+      glob: 'src/**/*.{js,jsx,ts,tsx}'
+      run: pnpm eslint --cache --fix {staged_files}
+      stage_fixed: true
