@@ -101,7 +101,7 @@ export function Select<
                       (state.isSelected && tailwindTheme.colors?.white) ||
                       tailwindTheme.colors?.black,
                     backgroundColor:
-                      (state.isSelected && tailwindTheme.colors?.primary) ||
+                      (state.isSelected && 'var(--color-primary)') ||
                       (state.isFocused && state.theme.colors.neutral5) ||
                       'transparent',
                   }
